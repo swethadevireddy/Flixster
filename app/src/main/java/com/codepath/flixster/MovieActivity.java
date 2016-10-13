@@ -1,4 +1,4 @@
-package codepath.com.flixster;
+package com.codepath.flixster;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

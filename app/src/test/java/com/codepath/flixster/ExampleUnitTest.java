@@ -1,4 +1,4 @@
-package codepath.com.flixster;
+package com.codepath.flixster;
 
 import org.junit.Test;
 

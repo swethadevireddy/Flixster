@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.3"
 
     defaultConfig {
-        applicationId "codepath.com.flixster"
+        applicationId "com.codepath.flixster"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
