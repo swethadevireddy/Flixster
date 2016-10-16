@@ -40,7 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Flixster Demo](http://imgur.com/a/27zcL)
+![Flixster Demo](imgur.com/a/27zcL)
 
 
 Mp4 created with Android Montior
