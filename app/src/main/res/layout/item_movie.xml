@@ -6,10 +6,11 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
         tools:src="@mipmap/ic_launcher"
         android:id="@+id/ivPoster"
         android:layout_marginRight="5dp"/>
@@ -21,7 +22,7 @@
         android:id="@+id/tvTitle"
         tools:text="@string/movie_title"
         android:textAppearance="?android:textAppearanceLarge"
-        />
+      />
 
     <TextView
         android:layout_width="wrap_content"

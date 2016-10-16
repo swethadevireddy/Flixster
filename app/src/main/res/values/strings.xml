@@ -2,4 +2,7 @@
     <string name="app_name">Flixster</string>
     <string name="movie_title">Title</string>
     <string name="movie_overview">Overview</string>
+    <string name="popularity">User Score</string>
+    <string name="movie_info">Movie Info</string>
+
 </resources>

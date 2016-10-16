@@ -14,6 +14,26 @@ public class Movie {
     String poster;
     String overview;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    Long id;
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    Double rating;
+
     public String getPosterLand() {
         return String.format("https://image.tmdb.org/t/p/w342%s", posterLand);
     }
@@ -23,6 +43,16 @@ public class Movie {
     }
 
     String posterLand;
+
+    public Double getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(Double popularity) {
+        this.popularity = popularity;
+    }
+
+    Double popularity;
 
     public String getOverview() {
         return overview;
@@ -53,6 +83,9 @@ public class Movie {
         this.overview = o.get("overview").toString();
         this.title = o.get("title").toString();
         this.posterLand = o.get("backdrop_path").toString();
+        this.rating = o.getDouble("vote_average");
+        this.popularity = o.getDouble("popularity");
+        this.id = o.getLong("id");
     }
 
     public static ArrayList<Movie> fromJsonArray(JSONArray jsonArray) throws JSONException {
@@ -61,5 +94,17 @@ public class Movie {
           moveList.add(new Movie(jsonArray.getJSONObject(i)));
       }
       return moveList;
+    }
+
+    public Category getMovieCategory(){
+        if(Double.valueOf(this.rating) >= 5.0){
+           return Category.POPULAR;
+        }
+
+        return Category.NORMAL;
+    }
+
+    public enum Category {
+        POPULAR, NORMAL
     }
 }

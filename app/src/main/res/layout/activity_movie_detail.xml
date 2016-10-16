@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codepath.flixster.MovieDetailActivity">
+
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        tools:src="@mipmap/ic_launcher"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTitle"
+        tools:text="@string/movie_title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@id/player"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+    />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rbMovie"
+        android:layout_below="@id/tvTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:isIndicator="true"
+        android:numStars="5"
+        />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/rbMovie"
+        android:id="@+id/ivDivider"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivDivider"
+        android:text="@string/popularity"
+        android:paddingTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:paddingBottom="5dp"
+        android:id="@+id/etPopularity"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPopularity"
+        android:text="@string/popularity"
+        android:layout_toRightOf="@id/etPopularity"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/ivDivider"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/etPopularity"
+        android:id="@+id/ivDivider1"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivDivider1"
+        android:text="@string/movie_info"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="5dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/etMovieInfo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvOverview"
+        android:layout_below="@id/etMovieInfo"
+        android:layout_alignParentStart="true"
+        android:paddingTop="3dp"
+        tools:text="@string/movie_overview"
+    />
+
+
+
+</RelativeLayout>
