@@ -40,7 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Flixster Demo](http://drops.ricardoalcocer.com/drops/drawermenu_actionbar-aLFu5IksDE.gif)
+![Flixster Demo](https://giphy.com/gifs/3oI9JLhM0VhsndpPY4?1)
 
 
 
