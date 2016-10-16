@@ -40,7 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/urJUNLB.gif?1' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/6jruayW.gif?1' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Mp4 created with Android Montior
 
