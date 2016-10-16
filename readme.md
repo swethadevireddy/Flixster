@@ -40,7 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Flixster Demo](https://giphy.com/gifs/3oI9JLhM0VhsndpPY4?1)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/DX89I"><a href="//imgur.com/DX89I"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 
 
