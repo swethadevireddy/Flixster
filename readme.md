@@ -38,9 +38,9 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented user stories:Please use http://i.imgur.com/6jruayW.gif or http://sendvid.com/gkbkl8yd
 
-![Demo](http://i.imgur.com/6jruayW.gif)
+![Demo](http://i.imgur.com/6jruayW.gif) 
 
 Mp4 created with Android Montior
 
