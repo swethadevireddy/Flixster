@@ -40,8 +40,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Flixster Demo](http://imgur.com/a/27zcL)
-![Test](https://sendvid.com/gkbkl8yd)
+![Flixster Demo](http://drops.ricardoalcocer.com/drops/drawermenu_actionbar-aLFu5IksDE.gif)
+
 
 
 Mp4 created with Android Montior
