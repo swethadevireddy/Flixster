@@ -40,9 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/DX89I"><a href="//imgur.com/DX89I"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
-
+<img src='http://i.imgur.com/6jruayW.gif?1' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Mp4 created with Android Montior
 
