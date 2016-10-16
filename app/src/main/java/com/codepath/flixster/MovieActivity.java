@@ -7,8 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.codepath.flixster.adapter.MovieAdapter;
 import com.codepath.flixster.model.Movie;
+import com.codepath.flixster.service.Volley;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -28,6 +35,7 @@ public class MovieActivity extends AppCompatActivity {
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
     ArrayList<Movie> movies;
     AsyncHttpClient client;
+    private RequestQueue mRequestQueue;
     String movieApiUrl;
     MovieAdapter movieAdapter;
 
@@ -40,9 +48,12 @@ public class MovieActivity extends AppCompatActivity {
         movieAdapter = new MovieAdapter(this, movies);
         lvMovies.setAdapter(movieAdapter);
         movieApiUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
-        client = new AsyncHttpClient();
-        getMovieList();
+      //  client = new AsyncHttpClient();
+        mRequestQueue = Volley.getInstance().getRequestQueue();
+        //getMovieList();
+        fetchMovieList();
         setUpSwipeRefreshListener();
+
     }
 
 
@@ -75,7 +86,7 @@ public class MovieActivity extends AppCompatActivity {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getMovieList();
+                fetchMovieList();
             }
 
         });
@@ -100,4 +111,32 @@ public class MovieActivity extends AppCompatActivity {
         }
         startActivity(i);
     }
+
+    private void fetchMovieList() {
+        // Pass second argument as "null" for GET requests
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, movieApiUrl, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            movieAdapter.clear();
+                            movies.addAll(Movie.fromJsonArray(response.getJSONArray("results")));
+                            Log.d("MovieActivity : movies", movies.toString());
+                            //movieAdapter.notifyDataSetChanged();
+                            swipeContainer.setRefreshing(false);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        });
+
+		/* Add your Requests to the RequestQueue to execute */
+        mRequestQueue.add(req);
+    }
+
 }

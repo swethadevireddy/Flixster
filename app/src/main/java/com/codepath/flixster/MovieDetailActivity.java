@@ -4,6 +4,12 @@ import android.os.Bundle;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.codepath.flixster.service.Volley;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -46,7 +52,7 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
         tvOverview.setText(overview);
         tvTitle.setText(title);
 
-        client = new AsyncHttpClient();
+       // client = new AsyncHttpClient();
        /* posterView.setImageResource(0);
         Picasso.with(this).load(poster)
                 .placeholder(R.mipmap.placeholder)
@@ -61,7 +67,10 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
 
         videoApiUrl = String.format("https://api.themoviedb.org/3/movie/%s/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed", id);
 
-        getVideos();
+        //getVideos();
+
+        //using volley
+        fetchVideos();
 
     }
 
@@ -88,6 +97,33 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
 
         });
 
+    }
+
+    private void fetchVideos() {
+        // Pass second argument as "null" for GET requests
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, videoApiUrl, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray array = response.getJSONArray("results");
+                            if(array != null &&  array.length() > 1){
+                                videoKey = ((JSONObject)array.get(0)).getString("key");
+                                playVideo();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        });
+
+		/* Add your Requests to the RequestQueue to execute */
+        Volley.getInstance().getRequestQueue().add(req);
     }
 
     private void playVideo(){
